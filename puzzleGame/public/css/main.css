@@ -1,0 +1,62 @@
+body{
+    background-color: rgb(243, 78, 205);
+    font-family: 'Cairo', sans-serif;
+}
+.container-letters{
+    width:65%;
+    border: 1px solid white;
+    margin:100px auto;
+    padding:100px 10px;
+    background-color: #eeeeee;
+    box-shadow: 1px 1px 20px 1px white;
+}
+.col-center{
+    float: none;
+    margin: auto;
+}
+.col-letter{
+    background-color: #c5c5c5;
+    color:white;
+    height:40px;
+    text-align: center;
+    font-size:20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.container-color-butns{
+    position: absolute;
+    right: 0;
+    top:30%;
+    z-index: 10;
+}
+.choose-color{
+
+    padding:10px;
+    min-width:50px;
+    height:40px;
+    display: none;
+    overflow: hidden;
+    border:1px solid #ddd;
+    margin:10px 0px;
+    outline: none;
+
+}
+.choose-color p{
+    width:1px;
+    overflow:hidden;
+    height: 1px;
+    color:white;
+}
+.choose-color:hover p{
+    width:100%;
+    height:100%;
+    transition: .6s ease-out;
+}
+.choose-color:hover{
+    width:140px;
+    transition: .6s ease-out;
+}
+

@@ -1,0 +1,14 @@
+body{
+    background-color: #eeeeee;
+    font-family: 'Cairo', sans-serif;
+}
+.col-center{
+    float:none;
+    margin: auto;
+}
+.form-login{
+    margin-top:150px;
+    padding:20px;
+    background-color:white;
+    border: 1px solid #ddd;
+}

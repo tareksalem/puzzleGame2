@@ -1,0 +1,43 @@
+body{
+    font-family: 'Cairo', sans-serif;
+}
+
+.navbar-default{
+    background-color:rgba(0, 0, 0, .80);
+    border: 1px solid rgba(0, 0, 0, .80);
+    border-radius: unset;
+}
+.navbar-brand, .navbar-default .navbar-nav>li>a{
+    color:white !important;
+}
+.container-dashboard{
+    width:90%;
+    background-color:#ddd;
+    padding:10px;
+}
+.alert {
+    margin: 20px 0 !important;
+}
+.remove-letter-btn{
+    color:red;
+    cursor: pointer;
+}
+.col-center{
+    margin:auto;
+    float: none;
+}
+.btn-toggle{
+    margin-bottom: 40px;
+}
+.element-hidden{
+    display: none;
+}
+.clearfix{
+    margin-top: 30px;
+    margin-bottom:30px;
+}
+.word-box .form-group, .letter-box .form-group{
+    padding:10px;
+    background-color:white;
+}
+.remove-btn{color:red;cursor:pointer;font-size:18px;float:right;font-weight: bold}

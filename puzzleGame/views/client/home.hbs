@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="css/main.css"/>
+
+<div class="container-color-butns">
+    <button class="choose-color" data-color="rgb(243, 78, 205)" title="choose this color"><p>choose this color</p></button>
+    <button class="choose-color" data-color="#657aff" title="choose this color"><p>choose this color</p></button>
+    <button class="choose-color" data-color="rgba(0, 0, 0, 0.86)" title="choose this color"><p>choose this color</p></button>
+    <button class="choose-color" data-color="#ffa78f" title="choose this color"><p>choose this color</p></button>
+    <button class="choose-color" data-color="rgba(39, 234, 128, 0.86)" title="choose this color"><p>choose this color</p></button>
+    <button class="choose-color" data-color="#3ab7ff" title="choose this color"><p>choose this color</p></button>
+
+</div>
+<div class="container container-fluid container-letters">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p> ما تكتب: <span class="user-writer"></span></p>
+    </div>
+    <div class="row row-letter">
+        {{#if letters}}
+            {{#each letters.letters}}
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">
+                    <div class="col-letter">{{this}}</div>
+                </div>
+            {{/each}}
+
+        {{/if}}
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/main.js"></script>

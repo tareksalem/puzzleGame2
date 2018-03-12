@@ -1,0 +1,215 @@
+<div class="container container-fluid container-dashboard">
+    <div class="row">
+        <div class="col-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button class="btn-toggle btn btn-primary" data-toggle=".container-inputs-letters">اختيار الأحرف</button>
+            <button class="btn-toggle btn btn-danger" data-toggle=".container-choose-words">حدد الكلمات النهائية</button>
+            <button class="btn-toggle btn btn-success" data-toggle=".container-upload-mp3file">اختر الموسيقى لتشغيلها عند الفوز</button>
+            <button class="btn-toggle btn btn-primary" data-toggle=".container-add-admin">إضافة مستخدم جديد</button>
+            <button class="btn-toggle btn btn-primary" data-toggle=".container-edit-info">تعديل بياناتي</button>
+        </div>
+        </div>
+        {{#if error}}
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-center">
+                <div class="alert alert-danger">{{error}}</div>
+            </div>
+        {{/if}}
+        {{#if success}}
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-center">
+                <div class="alert alert-success">{{success}}</div>
+            </div>
+        {{/if}}
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-center">
+                    <div class="container-options">
+                        <!--container for adding letters-->
+                        <div class="element-hidden container-inputs-letters">
+                            <h4> اختر الأحرف حسب الترتيب</h4>
+                            <form action="/cpanel/admin/editletters" method="post">
+                                <div class="clearfix col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <p class="add-box-letter btn btn-primary">اضافة حرف +</p>
+                                </div>
+                                <div class="container-letters-inputs">
+                                    {{#if letters}}
+                                        {{#each letters.letters}}
+                                            <div class="letter-box col-lg-2 col-md-2 col-sm-2 col-xs-4">
+
+                                                <div class="form-group">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <p data-val="{{this}}" class="remove-btn remove-letter-btn" title="حذف">-</p>
+                                                    </div>
+                                                    <label class="display-block">اكتب الحرف</label>
+                                                    <input class="form-control" name="letters" type="text" value="{{this}}"/>
+                                                </div>
+                                            </div>
+                                            {{else}}
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                                <div class="form-group">
+                                                    <label>اكتب الحرف</label>
+                                                    <input class="form-control" name="letters" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                                <div class="form-group">
+                                                    <label>اكتب الحرف</label>
+                                                    <input class="form-control" name="letters" type="text"/>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    {{/if}}
+                                    {{#unless letters}}
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                            <div class="form-group">
+                                                <label>اكتب الحرف</label>
+                                                <input class="form-control" name="letters" type="text"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                            <div class="form-group">
+                                                <label>اكتب الحرف</label>
+                                                <input class="form-control" name="letters" type="text"/>
+                                            </div>
+                                        </div>
+                                    {{/unless}}
+                                </div>
+                                <div class="container-save col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-center col-lg-3 col-md- col-sm-5 col-xs-6">
+                                        <input class="btn btn-primary" type="submit" value="حفظ التغييرات"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--container for the words form-->
+                        <div class="element-hidden container-choose-words">
+                                <h3>اكتب الكلمات التي تريدها</h3>
+                                <form method="post" action="/cpanel/admin/editwords">
+                                    <div class="clearfix col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <p class="add-box-word btn btn-primary">اضافة خيار +</p>
+                                    </div>
+                                    <div class="container-word-inputs">
+
+                                        {{#if words}}
+                                            {{#each words.words}}
+                                                <div class="word-box col-lg-3 col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12 col-md-12 col-sm1-12 col-xs-12">
+                                                            <p data-val="{{this}}" title="حذف" class="btn btn-danger clearfix btn-remove-word">-</p>
+                                                        </div>
+                                                        <label>اكتب الكلمة </label>
+                                                        <input class="form-control" type="text" name="words" value="{{this}}"/>
+                                                    </div>
+                                                </div>
+                                                {{else}}
+                                                <div class="word-box col-lg-3 col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>اكتب الكلمة </label>
+                                                        <input class="form-control" type="text" name="words"/>
+                                                    </div>
+                                                </div>
+                                                <div class="word-box col-lg-3 col-md-4 col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>اكتب الكلمة </label>
+                                                        <input class="form-control" type="text" name="words"/>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        {{/if}}
+                                        {{#unless words}}
+                                            <div class="word-box col-lg-3 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>اكتب الكلمة </label>
+                                                    <input class="form-control" type="text" name="words"/>
+                                                </div>
+                                            </div>
+                                            <div class="word-box col-lg-3 col-md-4 col-sm-6">
+                                                <div class="form-group">
+                                                    <label>اكتب الكلمة </label>
+                                                    <input class="form-control" type="text" name="words"/>
+                                                </div>
+                                            </div>
+                                        {{/unless}}
+                                    </div>
+                                    <div class="container-save col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-center col-lg-3 col-md- col-sm-5 col-xs-6">
+                                            <input class="btn btn-primary" type="submit" value="حفظ التغييرات"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        <!--container for adding admins-->
+                        <div class="element-hidden container-add-admin">
+                            <h4>أضف مستخدم جديد</h4>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="col-center alert alert-error"></div>
+                            </div>
+                            <form id="add-admin-form" action="/cpanel/admin/addadmin" method="post">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-8">
+                                        <div class="form-group">
+                                            <label>اسم المستخدم</label>
+                                            <input class="form-control" type="text" name="username"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-8">
+                                        <div class="form-group">
+                                            <label>الايميل</label>
+                                            <input class="form-control" type="email" name="email"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-8">
+                                        <div class="form-group">
+                                            <label>كلمة المرور</label>
+                                            <input class="form-control" type="password" name="password"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-10 col-center">
+                                        <div class="form-group">
+                                            <input class="form-control btn btn-primary" type="submit" value="إضافة +"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--container for edit info-->
+                        <div class="element-hidden container-edit-info">
+                            <form method="post" action="/cpanel/admin/{{user._id}}">
+                                <div class="form-group">
+                                    <label>اسم المستخدم</label>
+                                    <input class="form-control" type="text" name="username" value="{{user.username}}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>الايميل</label>
+                                    <input class="form-control" type="email" name="email" value="{{user.email}}"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>كلمة المرور</label>
+                                    <input class="form-control" type="password" name="password"/>
+                                </div>
+                                <div class="col-center col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <input class="form-control btn btn-primary" type="submit" value="حفظ"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--container for upload mp3 file-->
+                        <div class="element-hidden container-upload-mp3file">
+                            <form method="post" action="/cpanel/admin/uploadmp3"  enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <h4>اختر ملف الموسيقى الذي تريده</h4>
+                                    <input class="hidden input-upload-file" type="file" name="mp3file"/>
+                                    <p class="btn btn-primary btn-upload-file">اختر الملف</p>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-center col-lg-4 col-md-4 col-sm-6 col-xs-8">
+                                        <input class="form-control btn btn-primary" type="submit" value="رفع"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+
+    </div>
+</div>
+
+<script src="../js/admin/dashboard.js"></script>
