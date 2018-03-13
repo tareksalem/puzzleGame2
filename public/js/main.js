@@ -44,8 +44,10 @@ $(document).ready(function () {
                 type: "GET",
                 url: "/",
                 success: function (data) {
-                    data.words.forEach(function (word) {
-                        if (compoundWord === word) {
+                    // data.words.forEach(function (word) {
+                        console.log(compoundWord);
+                        if (data.words.indexOf(compoundWord) !== -1) {
+                            console.log("yes");
                             winnArr.push(compoundWord);
                             $.ajax({
                                 type: "GET",
@@ -85,7 +87,7 @@ $(document).ready(function () {
                             compoundWord = "";
 
                         }
-                    });
+                    // });
                 }
             });
         });
